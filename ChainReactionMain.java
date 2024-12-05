@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**Enter your name here**/
+/*Nyemah*/
 
 public class ChainReactionMain {
 
@@ -91,6 +91,30 @@ public class ChainReactionMain {
 
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
 	/**Add Code here to clean dataset**/
+        boolean update = false;
+        for(int i = 0; i < wordSets.size(); i++) {
+            if (wordSets.get(i).size() < 2) {
+                wordSets.remove(wordSets.get(i));
+                update = true;
+            }
+        }
+            for(int i = 0; i < wordSets.get(i).size(); i++) {
+                for (int j = 0; j < wordSets.get(i).size(); j++) {
+                    String word = wordSets.get(i).get(j);
+                    boolean removeword = false;
+                }
+            }
+                // my work below, didnt get far because i wanted to print the words to
+        // verify if i was deleting the right word but i couldnt get the cod correct to display the correct words.
+                for(int i = 0; i < wordSets.get(i).size(); i++) {
+                    for (int j = 0; j < wordSets.get(i).size(); j++) {
+                        if (wordSets.get(i).size() < 3 && !wordSets.get(0).get(i).equals(wordSets.get(0))) {
+                            System.out.println(wordSets.get(0).get(i));
+                        } else if (wordSets.get(i).size() > 3 && !wordSets.get(0).get(i).equals(wordSets.get(0))) {
+
+                        }
+                    }
+        }
 	    
         validate(wordSets);
     }
