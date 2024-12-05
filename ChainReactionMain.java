@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**Enter your name here**/
+/**Kirstie Joseph**/
 
 public class ChainReactionMain {
 
     public static void main(String[] args){
 
         ArrayList<ArrayList<String>> wordSets = new ArrayList<>();
-        String filename = "wordList.txt";
+        String filename = "wordListUpdated.txt";
 
         try{
             FileInputStream file = new FileInputStream(filename);
@@ -88,9 +88,24 @@ public class ChainReactionMain {
             }
         }
     }
-
+    // code that will weed out words with no pairing or starting line
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
+
 	/**Add Code here to clean dataset**/
+    boolean update = false;
+    /** remove rows with 1 word only / check size / dictate recursion **/
+    for(int i = 0; i < wordSets.size(); i++);{
+        if(wordSets.get(i).size() <2 ){
+            wordSets.remove(wordSets.get(i));
+            update = true;
+        }
+    }
+// check if a word appears as the first word in row
+        //if it does not it should be removed
+        for(int j = 0; j <wordSets.get(i).size();j++){
+            String word = wordSets.get
+        }
+
 	    
         validate(wordSets);
     }
