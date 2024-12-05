@@ -11,7 +11,8 @@ public class ChainReactionMain {
     public static void main(String[] args){
 
         ArrayList<ArrayList<String>> wordSets = new ArrayList<>();
-        String filename = "wordList.txt";
+        String filename = "wordList2.txt";
+
 
         try{
             FileInputStream file = new FileInputStream(filename);
@@ -29,6 +30,7 @@ public class ChainReactionMain {
         }
 
         cleanData(wordSets);
+        validate(wordSets);
 
         while(true)
         {
@@ -90,10 +92,42 @@ public class ChainReactionMain {
     }
 
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
-	/**Add Code here to clean dataset**/
-	    
-        validate(wordSets);
+
+        for(int r = 0; r < wordSets.size(); r++) {
+            if(wordSets.get(r).size() < 2){
+                wordSets.remove(r);
+                r--;
+            }
+        }
+
+        /*boolean hasRow = false;
+        for(int r = 0; r < wordSets.size(); r++){
+            for(int c = 0; c < wordSets.get(r).size(); c++){
+                hasRow = false;
+                for(int i = 0; i < wordSets.size(); i++){
+                    if(wordSets.get(r).get(c).equals(wordSets.get(i).getFirst())){
+                        hasRow = true;
+                    }
+                }
+
+
+                if(!hasRow){
+                    for(int j = 0; j <wordSets.size(); j++){
+                        for(int k = 0; k < wordSets.get(j).size(); k++){
+                            if(wordSets.get(r).get(c).equals(wordSets.get(j).get(k))){
+                                wordSets.get(j).remove(wordSets.get(r).get(c));
+                            }
+                        }
+                    }
+
+                }
+
+
+            }
+        }*/
     }
+
+
     public static void validate(ArrayList<ArrayList<String>> wordSets){
         final int wordCountValid = 8033;
         final int wordSetCountValid = 2334;
