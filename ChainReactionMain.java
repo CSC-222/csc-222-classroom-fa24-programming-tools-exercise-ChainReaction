@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**Enter your name here**/
+/**Myriam Gallant**/
 
 public class ChainReactionMain {
 
@@ -41,7 +41,7 @@ public class ChainReactionMain {
             System.out.println("*  CAN YOU COMPLETE THE CHAIN?  *");
             System.out.println("*                               *");
             System.out.println("*********************************\n");
-			System.out.println("Tutorial..................press 0");
+            System.out.println("Tutorial..................press 0");
             System.out.println("Beginner..................press 1");
             System.out.println("Pro.......................press 2");
             System.out.println("Superstar.................press 3");
@@ -89,10 +89,46 @@ public class ChainReactionMain {
         }
     }
 
-    public static void cleanData(ArrayList<ArrayList<String>> wordSets){
-	/**Add Code here to clean dataset**/
-	    
+    public static void cleanData(ArrayList<ArrayList<String>> wordSets) {
+        /**Add Code here to clean dataset**/
+        boolean update = false;
+
+        //checks for less than 2 words in a row
+        for(int i = 0; i<wordSets.size(); i++){
+
+            if(wordSets.get(i).size() < 2){
+                wordSets.remove(i);
+                update = true;
+            }
+
+        }
+
+
+        //checks for word never appearing as first word in a row
+        for(int i = 0; i<wordSets.size(); i++){
+
+            for(int j = 1; j<wordSets.get(i).size(); j++){
+
+                String word = wordSets.get(i).get(j);
+
+                for(int k = 0; k<wordSets.size(); k++){
+
+                    if(word.equals(wordSets.get(k).getFirst()))
+                        break;
+
+                    wordSets.get(k).remove(word);
+
+                }
+
+            }
+
+        }
+
+        if(update)
+            cleanData(wordSets);
+
         validate(wordSets);
+
     }
     public static void validate(ArrayList<ArrayList<String>> wordSets){
         final int wordCountValid = 8033;
